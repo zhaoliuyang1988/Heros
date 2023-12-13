@@ -1,0 +1,76 @@
+﻿@page
+@model WebApplication2.Pages.Hero.EditModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Edit</title>
+</head>
+<body>
+
+<h4>Heros</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Heros.Id" />
+            <div class="form-group">
+                <label asp-for="Heros.Name" class="control-label"></label>
+                <input asp-for="Heros.Name" class="form-control" />
+                <span asp-validation-for="Heros.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Heros.Description" class="control-label"></label>
+                <input asp-for="Heros.Description" class="form-control" />
+                <span asp-validation-for="Heros.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Heros.Attackdistance" class="control-label"></label>
+                <input asp-for="Heros.Attackdistance" class="form-control" />
+                <span asp-validation-for="Heros.Attackdistance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Heros.InitialStrategy" class="control-label"></label>
+                <input asp-for="Heros.InitialStrategy" class="form-control" />
+                <span asp-validation-for="Heros.InitialStrategy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Heros.Initialattack" class="control-label"></label>
+                <input asp-for="Heros.Initialattack" class="form-control" />
+                <span asp-validation-for="Heros.Initialattack" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Heros.Initialsiege" class="control-label"></label>
+                <input asp-for="Heros.Initialsiege" class="form-control" />
+                <span asp-validation-for="Heros.Initialsiege" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Heros.InitialDefense" class="control-label"></label>
+                <input asp-for="Heros.InitialDefense" class="form-control" />
+                <span asp-validation-for="Heros.InitialDefense" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Heros.Initialspeed" class="control-label"></label>
+                <input asp-for="Heros.Initialspeed" class="form-control" />
+                <span asp-validation-for="Heros.Initialspeed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+</body>
+</html>

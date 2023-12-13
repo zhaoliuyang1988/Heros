@@ -2,7 +2,7 @@
 
 namespace WebApplication2.Model
 {
-    public class Hero
+    public class Heros
     {
         public int Id { get; set; }
 
@@ -34,8 +34,8 @@ namespace WebApplication2.Model
 
         public float Initialspeed { get; set; }
 
-        public Skill Basictactics { get; set; }
+        public Skills Basictactics { get; set; }
 
-        public Skill Detachabletactics { get; set; }
+        public Skills Detachabletactics { get; set; }
     }   
 }

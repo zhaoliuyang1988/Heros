@@ -21,6 +21,8 @@ namespace WebApplication2.Data
         public DbSet<WebApplication2.Model.SkillQualitys>? SkillQualitys { get; set; }
         public DbSet<WebApplication2.Model.SkillTargets>? SkillTargets { get; set; }
         public DbSet<WebApplication2.Model.SkillTypes>? SkillTypes { get; set; }
+        public DbSet<WebApplication2.Model.Skills>? Skills { get; set; }
+        public DbSet<WebApplication2.Model.Heros>? Heros { get; set; }
 
 
     }

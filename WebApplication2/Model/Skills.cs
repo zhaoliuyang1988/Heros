@@ -5,7 +5,7 @@ namespace WebApplication2.Model
    
    
 
-    public class Skill
+    public class Skills
     {
         public int Id { get; set; }
         public string Name { get; set; }

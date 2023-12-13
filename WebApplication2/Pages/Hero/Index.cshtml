@@ -1,0 +1,86 @@
+﻿@page
+@model WebApplication2.Pages.Hero.IndexModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Heros[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Heros[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Heros[0].Attackdistance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Heros[0].InitialStrategy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Heros[0].Initialattack)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Heros[0].Initialsiege)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Heros[0].InitialDefense)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Heros[0].Initialspeed)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Heros) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Attackdistance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InitialStrategy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Initialattack)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Initialsiege)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InitialDefense)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Initialspeed)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+</body>
+</html>

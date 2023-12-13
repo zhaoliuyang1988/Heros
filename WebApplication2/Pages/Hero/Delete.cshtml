@@ -1,0 +1,79 @@
+﻿@page
+@model WebApplication2.Pages.Hero.DeleteModel
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Delete</title>
+</head>
+<body>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Heros</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Heros.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Heros.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Heros.Description)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Heros.Description)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Heros.Attackdistance)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Heros.Attackdistance)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Heros.InitialStrategy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Heros.InitialStrategy)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Heros.Initialattack)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Heros.Initialattack)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Heros.Initialsiege)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Heros.Initialsiege)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Heros.InitialDefense)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Heros.InitialDefense)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.Heros.Initialspeed)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.Heros.Initialspeed)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Heros.Id" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>
+</body>
+</html>
