@@ -1,0 +1,102 @@
+﻿@page
+@model WebApplication2.Pages.Products.IndexModel
+@using System.Web
+@using System.Text.RegularExpressions;
+@using Microsoft.AspNetCore.Components;
+
+
+<form method="post">
+    <p> lucky draw default 10 * 10连抽</p>
+
+    <input asp-for="multiple" class="form-control" />
+    
+    <p>
+        <input type="submit" value="查询" />
+    </p>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    ID
+                </th>
+                <th>
+                    Name
+                </th>
+                <th>
+                    Result
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model.Note)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.RowIndex)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Result)
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+    
+
+</form>
+
+
+@*<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].ProductType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].VirualAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Product[0].VirualAdditionalAmount)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Product) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ProductType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VirualAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VirualAdditionalAmount)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>*@
