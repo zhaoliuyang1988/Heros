@@ -46,7 +46,7 @@ namespace WebApplication2.Pages.Products
         public string[] ResultType = new[] { "橙",  "紫" , "蓝", "白" };
 
 
-        public IList<Product> Product { get; set; } = default!;
+        //public IList<Product> Product { get; set; } = default!;
 
         public async Task OnGetAsync()
         {

@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 using WebApplication2.Data;
 using WebApplication2.Model;
 
-namespace WebApplication2.Pages.Products
+namespace WebApplication2.Pages.Heros.Star
 {
     public class EditModel : PageModel
     {
@@ -21,21 +21,21 @@ namespace WebApplication2.Pages.Products
         }
 
         [BindProperty]
-        public Product Product { get; set; } = default!;
+        public Stars Stars { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Product == null)
+            if (id == null || _context.Stars == null)
             {
                 return NotFound();
             }
 
-            var product =  await _context.Product.FirstOrDefaultAsync(m => m.Id == id);
-            if (product == null)
+            var stars =  await _context.Stars.FirstOrDefaultAsync(m => m.Id == id);
+            if (stars == null)
             {
                 return NotFound();
             }
-            Product = product;
+            Stars = stars;
             return Page();
         }
 
@@ -48,7 +48,7 @@ namespace WebApplication2.Pages.Products
                 return Page();
             }
 
-            _context.Attach(Product).State = EntityState.Modified;
+            _context.Attach(Stars).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace WebApplication2.Pages.Products
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!ProductExists(Product.Id))
+                if (!StarsExists(Stars.Id))
                 {
                     return NotFound();
                 }
@@ -69,9 +69,9 @@ namespace WebApplication2.Pages.Products
             return RedirectToPage("./Index");
         }
 
-        private bool ProductExists(int id)
+        private bool StarsExists(int id)
         {
-          return (_context.Product?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.Stars?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

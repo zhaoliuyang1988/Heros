@@ -13,7 +13,15 @@ namespace WebApplication2.Data
             : base(options)
         {
         }
+        public DbSet<WebApplication2.Model.Arms>? Arms { get; set; }
+        public DbSet<WebApplication2.Model.Costs>? Costs { get; set; }
+        public DbSet<WebApplication2.Model.Groups>? Groups { get; set; }
+        public DbSet<WebApplication2.Model.Stars>? Stars { get; set; }
+        public DbSet<WebApplication2.Model.Times>? Times { get; set; }
+        public DbSet<WebApplication2.Model.SkillQualitys>? SkillQualitys { get; set; }
+        public DbSet<WebApplication2.Model.SkillTargets>? SkillTargets { get; set; }
+        public DbSet<WebApplication2.Model.SkillTypes>? SkillTypes { get; set; }
 
-        public DbSet<WebApplication2.Model.Product> Product { get; set; } = default!;
+
     }
 }

@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using WebApplication2.Data;
 using WebApplication2.Model;
 
-namespace WebApplication2.Pages.Products
+namespace WebApplication2.Pages.Skills.SkillTarget
 {
     public class DetailsModel : PageModel
     {
@@ -19,23 +19,23 @@ namespace WebApplication2.Pages.Products
             _context = context;
         }
 
-      public Product Product { get; set; } = default!; 
+      public SkillTargets SkillTargets { get; set; } = default!; 
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Product == null)
+            if (id == null || _context.SkillTargets == null)
             {
                 return NotFound();
             }
 
-            var product = await _context.Product.FirstOrDefaultAsync(m => m.Id == id);
-            if (product == null)
+            var skilltargets = await _context.SkillTargets.FirstOrDefaultAsync(m => m.Id == id);
+            if (skilltargets == null)
             {
                 return NotFound();
             }
             else 
             {
-                Product = product;
+                SkillTargets = skilltargets;
             }
             return Page();
         }

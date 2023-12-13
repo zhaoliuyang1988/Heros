@@ -8,7 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using WebApplication2.Data;
 using WebApplication2.Model;
 
-namespace WebApplication2.Pages.Products
+namespace WebApplication2.Pages.Skills.SkillTarget
 {
     public class DeleteModel : PageModel
     {
@@ -20,40 +20,40 @@ namespace WebApplication2.Pages.Products
         }
 
         [BindProperty]
-      public Product Product { get; set; } = default!;
+      public SkillTargets SkillTargets { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Product == null)
+            if (id == null || _context.SkillTargets == null)
             {
                 return NotFound();
             }
 
-            var product = await _context.Product.FirstOrDefaultAsync(m => m.Id == id);
+            var skilltargets = await _context.SkillTargets.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (product == null)
+            if (skilltargets == null)
             {
                 return NotFound();
             }
             else 
             {
-                Product = product;
+                SkillTargets = skilltargets;
             }
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null || _context.Product == null)
+            if (id == null || _context.SkillTargets == null)
             {
                 return NotFound();
             }
-            var product = await _context.Product.FindAsync(id);
+            var skilltargets = await _context.SkillTargets.FindAsync(id);
 
-            if (product != null)
+            if (skilltargets != null)
             {
-                Product = product;
-                _context.Product.Remove(Product);
+                SkillTargets = skilltargets;
+                _context.SkillTargets.Remove(SkillTargets);
                 await _context.SaveChangesAsync();
             }
 

@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using WebApplication2.Data;
 using WebApplication2.Model;
 
-namespace WebApplication2.Pages.Products
+namespace WebApplication2.Pages.Skills.SkillQuality
 {
     public class CreateModel : PageModel
     {
@@ -25,18 +25,18 @@ namespace WebApplication2.Pages.Products
         }
 
         [BindProperty]
-        public Product Product { get; set; } = default!;
+        public SkillQualitys SkillQualitys { get; set; } = default!;
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Product == null || Product == null)
+          if (!ModelState.IsValid || _context.SkillQualitys == null || SkillQualitys == null)
             {
                 return Page();
             }
 
-            _context.Product.Add(Product);
+            _context.SkillQualitys.Add(SkillQualitys);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
