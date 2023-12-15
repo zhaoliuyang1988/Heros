@@ -20,40 +20,40 @@ namespace WebApplication2.Pages.Skill
         }
 
         [BindProperty]
-      public Skills Skills { get; set; } = default!;
+      public SkillModel SkillModel { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Skills == null)
+            if (id == null || _context.SkillModel == null)
             {
                 return NotFound();
             }
 
-            var skills = await _context.Skills.FirstOrDefaultAsync(m => m.Id == id);
+            var skillmodel = await _context.SkillModel.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (skills == null)
+            if (skillmodel == null)
             {
                 return NotFound();
             }
             else 
             {
-                Skills = skills;
+                SkillModel = skillmodel;
             }
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null || _context.Skills == null)
+            if (id == null || _context.SkillModel == null)
             {
                 return NotFound();
             }
-            var skills = await _context.Skills.FindAsync(id);
+            var skillmodel = await _context.SkillModel.FindAsync(id);
 
-            if (skills != null)
+            if (skillmodel != null)
             {
-                Skills = skills;
-                _context.Skills.Remove(Skills);
+                SkillModel = skillmodel;
+                _context.SkillModel.Remove(SkillModel);
                 await _context.SaveChangesAsync();
             }
 

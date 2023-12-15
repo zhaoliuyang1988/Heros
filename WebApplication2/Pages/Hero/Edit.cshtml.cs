@@ -21,21 +21,29 @@ namespace WebApplication2.Pages.Hero
         }
 
         [BindProperty]
-        public Heros Heros { get; set; } = default!;
+        public HeroModel HeroModel { get; set; } = default!;
+
+        public SelectList SelectList { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Heros == null)
+            if (id == null || _context.HeroModel == null)
             {
                 return NotFound();
             }
 
-            var heros =  await _context.Heros.FirstOrDefaultAsync(m => m.Id == id);
-            if (heros == null)
+            if (_context.SkillModel != null)
+            {
+                var skills = await _context.SkillModel.ToListAsync();
+                SelectList = new SelectList(await _context.SkillModel.ToListAsync(), "Id", "Name");
+            }
+
+            var heromodel =  await _context.HeroModel.FirstOrDefaultAsync(m => m.Id == id);
+            if (heromodel == null)
             {
                 return NotFound();
             }
-            Heros = heros;
+            HeroModel = heromodel;
             return Page();
         }
 
@@ -48,7 +56,7 @@ namespace WebApplication2.Pages.Hero
                 return Page();
             }
 
-            _context.Attach(Heros).State = EntityState.Modified;
+            _context.Attach(HeroModel).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +64,7 @@ namespace WebApplication2.Pages.Hero
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!HerosExists(Heros.Id))
+                if (!HeroModelExists(HeroModel.Id))
                 {
                     return NotFound();
                 }
@@ -69,9 +77,9 @@ namespace WebApplication2.Pages.Hero
             return RedirectToPage("./Index");
         }
 
-        private bool HerosExists(int id)
+        private bool HeroModelExists(int id)
         {
-          return (_context.Heros?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.HeroModel?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

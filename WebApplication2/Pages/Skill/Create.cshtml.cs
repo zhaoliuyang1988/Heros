@@ -25,18 +25,18 @@ namespace WebApplication2.Pages.Skill
         }
 
         [BindProperty]
-        public Skills Skills { get; set; } = default!;
+        public SkillModel SkillModel { get; set; } = default!;
         
 
         // To protect from overposting attacks, see https://aka.ms/RazorPagesCRUD
         public async Task<IActionResult> OnPostAsync()
         {
-          if (!ModelState.IsValid || _context.Skills == null || Skills == null)
+          if (!ModelState.IsValid || _context.SkillModel == null || SkillModel == null)
             {
                 return Page();
             }
 
-            _context.Skills.Add(Skills);
+            _context.SkillModel.Add(SkillModel);
             await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");

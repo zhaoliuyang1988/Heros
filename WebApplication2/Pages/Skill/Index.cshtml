@@ -2,17 +2,11 @@
 @model WebApplication2.Pages.Skill.IndexModel
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Index";
 }
 
-<!DOCTYPE html>
+<h1>Index</h1>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
 <p>
     <a asp-page="Create">Create New</a>
 </p>
@@ -20,16 +14,46 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Skills[0].Name)
+                @Html.DisplayNameFor(model => model.SkillModel[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SkillModel[0].Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SkillModel[0].armId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SkillModel[0].type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SkillModel[0].quality)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SkillModel[0].target)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Skills) {
+@foreach (var item in Model.SkillModel) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.armId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.type)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.quality)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.target)
             </td>
             <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
@@ -40,5 +64,3 @@
 }
     </tbody>
 </table>
-</body>
-</html>

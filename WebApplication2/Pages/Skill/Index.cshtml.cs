@@ -19,13 +19,13 @@ namespace WebApplication2.Pages.Skill
             _context = context;
         }
 
-        public IList<Skills> Skills { get;set; } = default!;
+        public IList<SkillModel> SkillModel { get;set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_context.Skills != null)
+            if (_context.SkillModel != null)
             {
-                Skills = await _context.Skills.ToListAsync();
+                SkillModel = await _context.SkillModel.ToListAsync();
             }
         }
     }

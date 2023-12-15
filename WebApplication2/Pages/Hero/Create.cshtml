@@ -2,63 +2,101 @@
 @model WebApplication2.Pages.Hero.CreateModel
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Create";
 }
 
-<!DOCTYPE html>
+<h1>Create</h1>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Create</title>
-</head>
-<body>
-
-<h4>Heros</h4>
+<h4>HeroModel</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Heros.Name" class="control-label"></label>
-                <input asp-for="Heros.Name" class="form-control" />
-                <span asp-validation-for="Heros.Name" class="text-danger"></span>
+                <label asp-for="HeroModel.Name" class="control-label"></label>
+                <input asp-for="HeroModel.Name" class="form-control" />
+                <span asp-validation-for="HeroModel.Name" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Heros.Description" class="control-label"></label>
-                <input asp-for="Heros.Description" class="form-control" />
-                <span asp-validation-for="Heros.Description" class="text-danger"></span>
+                <label asp-for="HeroModel.Description" class="control-label"></label>
+                <input asp-for="HeroModel.Description" class="form-control" />
+                <span asp-validation-for="HeroModel.Description" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Heros.Attackdistance" class="control-label"></label>
-                <input asp-for="Heros.Attackdistance" class="form-control" />
-                <span asp-validation-for="Heros.Attackdistance" class="text-danger"></span>
+                <label asp-for="HeroModel.sexId" class="control-label"></label>
+                <select asp-for="HeroModel.sexId" asp-items="@Html.GetEnumSelectList(typeof(WebApplication2.Model.sexEnum))" class="form-control"></select>
+                <span asp-validation-for="HeroModel.sexId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Heros.InitialStrategy" class="control-label"></label>
-                <input asp-for="Heros.InitialStrategy" class="form-control" />
-                <span asp-validation-for="Heros.InitialStrategy" class="text-danger"></span>
+                <label asp-for="HeroModel.timeTypeId" class="control-label"></label>
+                <select asp-for="HeroModel.timeTypeId" asp-items="@Html.GetEnumSelectList(typeof(WebApplication2.Model.timeEnum))" class="form-control"></select>
+                <span asp-validation-for="HeroModel.timeTypeId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Heros.Initialattack" class="control-label"></label>
-                <input asp-for="Heros.Initialattack" class="form-control" />
-                <span asp-validation-for="Heros.Initialattack" class="text-danger"></span>
+                <label asp-for="HeroModel.groupId" class="control-label"></label>
+                <select asp-for="HeroModel.groupId" asp-items="@Html.GetEnumSelectList(typeof(WebApplication2.Model.groupEnum))" class="form-control"></select>
+                <span asp-validation-for="HeroModel.groupId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Heros.Initialsiege" class="control-label"></label>
-                <input asp-for="Heros.Initialsiege" class="form-control" />
-                <span asp-validation-for="Heros.Initialsiege" class="text-danger"></span>
+                <label asp-for="HeroModel.starId" class="control-label"></label>
+                <select asp-for="HeroModel.starId" asp-items="@Html.GetEnumSelectList(typeof(WebApplication2.Model.starEnum))" class="form-control"></select>
+                <span asp-validation-for="HeroModel.starId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Heros.InitialDefense" class="control-label"></label>
-                <input asp-for="Heros.InitialDefense" class="form-control" />
-                <span asp-validation-for="Heros.InitialDefense" class="text-danger"></span>
+                <label asp-for="HeroModel.armId" class="control-label"></label>
+                <select asp-for="HeroModel.armId" asp-items="@Html.GetEnumSelectList(typeof(WebApplication2.Model.armEnum))" class="form-control"></select>
+                <span asp-validation-for="HeroModel.armId" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Heros.Initialspeed" class="control-label"></label>
-                <input asp-for="Heros.Initialspeed" class="form-control" />
-                <span asp-validation-for="Heros.Initialspeed" class="text-danger"></span>
+                <label asp-for="HeroModel.costId" class="control-label"></label>
+                <input asp-for="HeroModel.costId" class="form-control" />
+                <span asp-validation-for="HeroModel.costId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HeroModel.Attackdistance" class="control-label"></label>
+                <input asp-for="HeroModel.Attackdistance" class="form-control" />
+                <span asp-validation-for="HeroModel.Attackdistance" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HeroModel.InitialStrategy" class="control-label"></label>
+                <input asp-for="HeroModel.InitialStrategy" class="form-control" />
+                <span asp-validation-for="HeroModel.InitialStrategy" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HeroModel.Initialattack" class="control-label"></label>
+                <input asp-for="HeroModel.Initialattack" class="form-control" />
+                <span asp-validation-for="HeroModel.Initialattack" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HeroModel.Initialsiege" class="control-label"></label>
+                <input asp-for="HeroModel.Initialsiege" class="form-control" />
+                <span asp-validation-for="HeroModel.Initialsiege" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HeroModel.InitialDefense" class="control-label"></label>
+                <input asp-for="HeroModel.InitialDefense" class="form-control" />
+                <span asp-validation-for="HeroModel.InitialDefense" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HeroModel.Initialspeed" class="control-label"></label>
+                <input asp-for="HeroModel.Initialspeed" class="form-control" />
+                <span asp-validation-for="HeroModel.Initialspeed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HeroModel.BasictacticsId" class="control-label"></label>
+                <select asp-for="HeroModel.BasictacticsId" asp-items="Model.SelectList" class="form-control"></select>
+                <span asp-validation-for="HeroModel.BasictacticsId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HeroModel.DetachabletacticsId" class="control-label"></label>
+                <select asp-for="HeroModel.DetachabletacticsId" asp-items="Model.SelectList" class="form-control"></select>
+                <span asp-validation-for="HeroModel.DetachabletacticsId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HeroModel.picPath" class="control-label"></label>
+                <input asp-for="HeroModel.picPath" class="form-control" />
+                <span asp-validation-for="HeroModel.picPath" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -71,5 +109,6 @@
     <a asp-page="Index">Back to List</a>
 </div>
 
-</body>
-</html>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

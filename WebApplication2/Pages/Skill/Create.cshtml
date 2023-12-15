@@ -2,28 +2,46 @@
 @model WebApplication2.Pages.Skill.CreateModel
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Create";
 }
 
-<!DOCTYPE html>
+<h1>Create</h1>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Create</title>
-</head>
-<body>
-
-<h4>Skills</h4>
+<h4>SkillModel</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form method="post">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
-                <label asp-for="Skills.Name" class="control-label"></label>
-                <input asp-for="Skills.Name" class="form-control" />
-                <span asp-validation-for="Skills.Name" class="text-danger"></span>
+                <label asp-for="SkillModel.Name" class="control-label"></label>
+                <input asp-for="SkillModel.Name" class="form-control" />
+                <span asp-validation-for="SkillModel.Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SkillModel.Description" class="control-label"></label>
+                <input asp-for="SkillModel.Description" class="form-control" />
+                <span asp-validation-for="SkillModel.Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SkillModel.armId" class="control-label"></label>
+                <select asp-for="SkillModel.armId" asp-items="@Html.GetEnumSelectList(typeof(WebApplication2.Model.armEnum))" class="form-control"></select>
+                <span asp-validation-for="SkillModel.armId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SkillModel.type" class="control-label"></label>
+                <select asp-for="SkillModel.type" asp-items="@Html.GetEnumSelectList(typeof(WebApplication2.Model.typeEnum))" class="form-control"></select>
+                <span asp-validation-for="SkillModel.type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SkillModel.quality" class="control-label"></label>
+                <select asp-for="SkillModel.quality" asp-items="@Html.GetEnumSelectList(typeof(WebApplication2.Model.qualityEnum))" class="form-control"></select>
+                <span asp-validation-for="SkillModel.quality" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SkillModel.target" class="control-label"></label>
+                <select asp-for="SkillModel.target" asp-items="@Html.GetEnumSelectList(typeof(WebApplication2.Model.targetEnum))" class="form-control"></select>
+                <span asp-validation-for="SkillModel.target" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
@@ -36,5 +54,6 @@
     <a asp-page="Index">Back to List</a>
 </div>
 
-</body>
-</html>
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

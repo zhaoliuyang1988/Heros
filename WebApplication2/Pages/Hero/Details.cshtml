@@ -2,75 +2,124 @@
 @model WebApplication2.Pages.Hero.DetailsModel
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Details";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Details</title>
-</head>
-<body>
+<h1>Details</h1>
 
 <div>
-    <h4>Heros</h4>
+    <h4>HeroModel</h4>
     <hr />
     <dl class="row">
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Heros.Name)
+            @Html.DisplayNameFor(model => model.HeroModel.Name)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Heros.Name)
+            @Html.DisplayFor(model => model.HeroModel.Name)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Heros.Description)
+            @Html.DisplayNameFor(model => model.HeroModel.Description)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Heros.Description)
+            @Html.DisplayFor(model => model.HeroModel.Description)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Heros.Attackdistance)
+            @Html.DisplayNameFor(model => model.HeroModel.sexId)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Heros.Attackdistance)
+            @Html.DisplayFor(model => model.HeroModel.sexId)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Heros.InitialStrategy)
+            @Html.DisplayNameFor(model => model.HeroModel.timeTypeId)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Heros.InitialStrategy)
+            @Html.DisplayFor(model => model.HeroModel.timeTypeId)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Heros.Initialattack)
+            @Html.DisplayNameFor(model => model.HeroModel.groupId)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Heros.Initialattack)
+            @Html.DisplayFor(model => model.HeroModel.groupId)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Heros.Initialsiege)
+            @Html.DisplayNameFor(model => model.HeroModel.starId)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Heros.Initialsiege)
+            @Html.DisplayFor(model => model.HeroModel.starId)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Heros.InitialDefense)
+            @Html.DisplayNameFor(model => model.HeroModel.armId)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Heros.InitialDefense)
+            @Html.DisplayFor(model => model.HeroModel.armId)
         </dd>
         <dt class="col-sm-2">
-            @Html.DisplayNameFor(model => model.Heros.Initialspeed)
+            @Html.DisplayNameFor(model => model.HeroModel.costId)
         </dt>
         <dd class="col-sm-10">
-            @Html.DisplayFor(model => model.Heros.Initialspeed)
+            @Html.DisplayFor(model => model.HeroModel.costId)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.HeroModel.Attackdistance)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.HeroModel.Attackdistance)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.HeroModel.InitialStrategy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.HeroModel.InitialStrategy)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.HeroModel.Initialattack)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.HeroModel.Initialattack)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.HeroModel.Initialsiege)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.HeroModel.Initialsiege)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.HeroModel.InitialDefense)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.HeroModel.InitialDefense)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.HeroModel.Initialspeed)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.HeroModel.Initialspeed)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.HeroModel.BasictacticsId)
+        </dt>
+        <dd class="col-sm-10">
+@*            @Html.DisplayFor(model => model.HeroModel.BasictacticsId)
+            <input type="hidden" asp-for="HeroModel.BasictacticsId" />*@
+            @Html.DisplayFor(model => model.SkillModels.Where(x=> x.Id == model.HeroModel.BasictacticsId).ToList().FirstOrDefault()!.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.HeroModel.DetachabletacticsId)
+        </dt>
+        <dd class="col-sm-10">
+@*            @Html.DisplayFor(model => model.HeroModel.DetachabletacticsId)
+            <input type="hidden" asp-for="HeroModel.DetachabletacticsId" />*@
+            @Html.DisplayFor(model => model.SkillModels.Where(x=> x.Id == model.HeroModel.DetachabletacticsId).ToList().FirstOrDefault()!.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.HeroModel.picPath)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.HeroModel.picPath)
         </dd>
     </dl>
 </div>
 <div>
-    <a asp-page="./Edit" asp-route-id="@Model.Heros?.Id">Edit</a> |
+    <a asp-page="./Edit" asp-route-id="@Model.HeroModel?.Id">Edit</a> |
     <a asp-page="./Index">Back to List</a>
 </div>
-</body>
-</html>

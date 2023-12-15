@@ -19,13 +19,19 @@ namespace WebApplication2.Pages.Hero
             _context = context;
         }
 
-        public IList<Heros> Heros { get;set; } = default!;
+        public IList<HeroModel> HeroModel { get;set; } = default!;
+        public IList<SkillModel> SkillModels { get; set; } = default!;
 
         public async Task OnGetAsync()
         {
-            if (_context.Heros != null)
+            if (_context.HeroModel != null)
             {
-                Heros = await _context.Heros.ToListAsync();
+                HeroModel = await _context.HeroModel.ToListAsync();
+            }
+
+            if (_context.SkillModel != null)
+            {
+                SkillModels = await _context.SkillModel.ToListAsync();
             }
         }
     }

@@ -20,40 +20,40 @@ namespace WebApplication2.Pages.Hero
         }
 
         [BindProperty]
-      public Heros Heros { get; set; } = default!;
+      public HeroModel HeroModel { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Heros == null)
+            if (id == null || _context.HeroModel == null)
             {
                 return NotFound();
             }
 
-            var heros = await _context.Heros.FirstOrDefaultAsync(m => m.Id == id);
+            var heromodel = await _context.HeroModel.FirstOrDefaultAsync(m => m.Id == id);
 
-            if (heros == null)
+            if (heromodel == null)
             {
                 return NotFound();
             }
             else 
             {
-                Heros = heros;
+                HeroModel = heromodel;
             }
             return Page();
         }
 
         public async Task<IActionResult> OnPostAsync(int? id)
         {
-            if (id == null || _context.Heros == null)
+            if (id == null || _context.HeroModel == null)
             {
                 return NotFound();
             }
-            var heros = await _context.Heros.FindAsync(id);
+            var heromodel = await _context.HeroModel.FindAsync(id);
 
-            if (heros != null)
+            if (heromodel != null)
             {
-                Heros = heros;
-                _context.Heros.Remove(Heros);
+                HeroModel = heromodel;
+                _context.HeroModel.Remove(HeroModel);
                 await _context.SaveChangesAsync();
             }
 

@@ -21,21 +21,21 @@ namespace WebApplication2.Pages.Skill
         }
 
         [BindProperty]
-        public Skills Skills { get; set; } = default!;
+        public SkillModel SkillModel { get; set; } = default!;
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Skills == null)
+            if (id == null || _context.SkillModel == null)
             {
                 return NotFound();
             }
 
-            var skills =  await _context.Skills.FirstOrDefaultAsync(m => m.Id == id);
-            if (skills == null)
+            var skillmodel =  await _context.SkillModel.FirstOrDefaultAsync(m => m.Id == id);
+            if (skillmodel == null)
             {
                 return NotFound();
             }
-            Skills = skills;
+            SkillModel = skillmodel;
             return Page();
         }
 
@@ -48,7 +48,7 @@ namespace WebApplication2.Pages.Skill
                 return Page();
             }
 
-            _context.Attach(Skills).State = EntityState.Modified;
+            _context.Attach(SkillModel).State = EntityState.Modified;
 
             try
             {
@@ -56,7 +56,7 @@ namespace WebApplication2.Pages.Skill
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!SkillsExists(Skills.Id))
+                if (!SkillModelExists(SkillModel.Id))
                 {
                     return NotFound();
                 }
@@ -69,9 +69,9 @@ namespace WebApplication2.Pages.Skill
             return RedirectToPage("./Index");
         }
 
-        private bool SkillsExists(int id)
+        private bool SkillModelExists(int id)
         {
-          return (_context.Skills?.Any(e => e.Id == id)).GetValueOrDefault();
+          return (_context.SkillModel?.Any(e => e.Id == id)).GetValueOrDefault();
         }
     }
 }

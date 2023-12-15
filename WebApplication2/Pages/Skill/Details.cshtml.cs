@@ -19,23 +19,23 @@ namespace WebApplication2.Pages.Skill
             _context = context;
         }
 
-      public Skills Skills { get; set; } = default!; 
+      public SkillModel SkillModel { get; set; } = default!; 
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null || _context.Skills == null)
+            if (id == null || _context.SkillModel == null)
             {
                 return NotFound();
             }
 
-            var skills = await _context.Skills.FirstOrDefaultAsync(m => m.Id == id);
-            if (skills == null)
+            var skillmodel = await _context.SkillModel.FirstOrDefaultAsync(m => m.Id == id);
+            if (skillmodel == null)
             {
                 return NotFound();
             }
             else 
             {
-                Skills = skills;
+                SkillModel = skillmodel;
             }
             return Page();
         }

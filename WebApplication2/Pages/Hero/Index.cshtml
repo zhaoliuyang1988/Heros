@@ -2,17 +2,11 @@
 @model WebApplication2.Pages.Hero.IndexModel
 
 @{
-    Layout = null;
+    ViewData["Title"] = "Index";
 }
 
-<!DOCTYPE html>
+<h1>Index</h1>
 
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
 <p>
     <a asp-page="Create">Create New</a>
 </p>
@@ -20,40 +14,85 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Heros[0].Name)
+                @Html.DisplayNameFor(model => model.HeroModel[0].Name)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Heros[0].Description)
+                @Html.DisplayNameFor(model => model.HeroModel[0].Description)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Heros[0].Attackdistance)
+                @Html.DisplayNameFor(model => model.HeroModel[0].sexId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Heros[0].InitialStrategy)
+                @Html.DisplayNameFor(model => model.HeroModel[0].timeTypeId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Heros[0].Initialattack)
+                @Html.DisplayNameFor(model => model.HeroModel[0].groupId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Heros[0].Initialsiege)
+                @Html.DisplayNameFor(model => model.HeroModel[0].starId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Heros[0].InitialDefense)
+                @Html.DisplayNameFor(model => model.HeroModel[0].armId)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Heros[0].Initialspeed)
+                @Html.DisplayNameFor(model => model.HeroModel[0].costId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HeroModel[0].Attackdistance)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HeroModel[0].InitialStrategy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HeroModel[0].Initialattack)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HeroModel[0].Initialsiege)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HeroModel[0].InitialDefense)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HeroModel[0].Initialspeed)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HeroModel[0].BasictacticsId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HeroModel[0].DetachabletacticsId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HeroModel[0].picPath)
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model.Heros) {
+@foreach (var item in Model.HeroModel) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Name)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.sexId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.timeTypeId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.groupId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.starId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.armId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.costId)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Attackdistance)
@@ -74,6 +113,17 @@
                 @Html.DisplayFor(modelItem => item.Initialspeed)
             </td>
             <td>
+@*                @Html.DisplayFor(modelItem => item.BasictacticsId)*@
+                @Html.DisplayFor(modelItem => modelItem.SkillModels.Where(x=> x.Id == item.BasictacticsId).ToList().FirstOrDefault()!.Name)
+            </td>
+            <td>
+@*                @Html.DisplayFor(modelItem => item.DetachabletacticsId)*@
+                @Html.DisplayFor(modelItem => modelItem.SkillModels.Where(x=> x.Id == item.DetachabletacticsId).ToList().FirstOrDefault()!.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.picPath)
+            </td>
+            <td>
                 <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
                 <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
@@ -82,5 +132,3 @@
 }
     </tbody>
 </table>
-</body>
-</html>
