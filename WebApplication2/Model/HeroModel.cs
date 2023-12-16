@@ -23,7 +23,7 @@ namespace WebApplication2.Model
         [Description("朝代")]
         public groupEnum groupId { get; set; }//朝代
 
-        [Description("星级")]
+        [Description("品质")]
         public starEnum starId { get; set; }
 
         [Description("兵种")]
@@ -74,7 +74,6 @@ namespace WebApplication2.Model
         吴 = 4,
         群 = 5,
         晋 = 6
-
     }
 
 
@@ -86,24 +85,20 @@ namespace WebApplication2.Model
         元 = 4,
         明 = 5,
         清 = 6
-
     }
 
     public enum starEnum
     {
-
-        白 = 1,
-        绿 = 2,
+        橙 = 1,
+        粉 = 2,
         蓝 = 3,
-        粉 = 4,
-        橙 = 5
-
+        绿 = 4,
+        白 = 5
     }
 
 
     public enum armEnum
     {
-
         弓 = 1,
         步 = 2,
         骑 = 3,
@@ -112,6 +107,4 @@ namespace WebApplication2.Model
         弓步=6,
         全=7
     }
-
-
 }

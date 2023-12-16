@@ -15,6 +15,7 @@ namespace WebApplication2.Data
         }
         public DbSet<WebApplication2.Model.HeroModel>? HeroModel { get; set; }
         public DbSet<WebApplication2.Model.SkillModel>? SkillModel { get; set; }
+        public DbSet<WebApplication2.Model.ProductModel>? ProductModel { get; set; }
         
 
 

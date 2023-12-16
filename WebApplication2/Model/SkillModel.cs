@@ -26,6 +26,9 @@ namespace WebApplication2.Model
 
         [Description("目标")]
         public targetEnum target { get; set; }
+
+        [Description("图片路径")]
+        public string picPath { get; set; }
     }
 
 
@@ -52,7 +55,7 @@ namespace WebApplication2.Model
         我方团体 = 2,
         敌军单体 = 3,
         敌军团体 = 4,
-        共计目标 = 5,
+        攻击目标 = 5,
         自己 = 6
     }
 
