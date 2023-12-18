@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using System.Diagnostics;
@@ -14,6 +15,8 @@ namespace WebApplication2.Pages
 
         private readonly ILogger<ErrorModel> _logger;
 
+        public string? ExceptionMessage { get; set; }
+
         public ErrorModel(ILogger<ErrorModel> logger)
         {
             _logger = logger;
@@ -22,6 +25,11 @@ namespace WebApplication2.Pages
         public void OnGet()
         {
             RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
+
+            var exceptionHandlerPathFeature =
+     HttpContext.Features.Get<IExceptionHandlerFeature>();
+
+            ExceptionMessage = exceptionHandlerPathFeature?.Error.Message;
         }
     }
 }
